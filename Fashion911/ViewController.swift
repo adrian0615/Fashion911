@@ -9,15 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        _ = Timer.scheduledTimer(timeInterval: 5.1, target: self, selector: #selector(self.welcomePage), userInfo: nil, repeats: false)
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func welcomePage() {
+        
+        let welcomeVC = self.storyboard!.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+        
+        self.present(welcomeVC, animated: true, completion: nil)
+        
     }
 
 
